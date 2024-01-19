@@ -6,8 +6,8 @@ import observer.log.{LoggingObserver, TerminalLogger}
 import javax.swing.text.html.parser.Entity
 
 @main def ObserverMain(): Unit =
-  val sensor = new BrightnessSensor;
-  val switch = new Switch;
+  val sensor = new BrightnessSensor("sensor");
+  val switch = new Switch("switch");
   val logger = new TerminalLogger;
 
   sensor.addObserver(logger);

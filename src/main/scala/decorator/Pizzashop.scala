@@ -16,9 +16,9 @@ class Verdura extends Margherita:
 
 @main def Pizzashop(): Unit =
     // pizza Verdura with extra cheese
-    val p1: Pizza = ???
+    val p1: Pizza = new Cheese(new Verdura);
     // pizza Funghi family size with vegan cheese
-    val p2: Pizza = ???
+    val p2: Pizza = new FamilySize(new VeganCheese(new Funghi));
 
     println(s"Price of a pizza verdura with extra cheese is ${p1.price}")
 
@@ -26,10 +26,23 @@ class Verdura extends Margherita:
     
 
 // === ADD YOUR CODE BELOW ===
-class Cheese extends Pizza:
-    
-    def price
+class Cheese(pizza: Pizza) extends Pizza:
+    override def price: BigDecimal = pizza.price + 2;
+    override def diameter: Int = pizza.diameter;
 
+class VeganCheese(pizza: Pizza) extends Pizza:
+    override def price: BigDecimal = pizza.price + 1.5;
 
+    override def diameter: Int = pizza.diameter;
+
+class Onion(pizza: Pizza) extends Pizza:
+    override def price: BigDecimal = pizza.price + 1;
+
+    override def diameter: Int = pizza.diameter;
+
+class FamilySize(pizza: Pizza) extends Pizza:
+    override def price: BigDecimal = pizza.price * 2;
+
+    override def diameter: Int = 42;
 
 // === ADD YOUR CODE ABOVE ===

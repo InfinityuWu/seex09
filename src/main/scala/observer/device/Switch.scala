@@ -11,6 +11,7 @@ case class Switch(name: String) extends Control with Loggable[Entity, EntityChan
     if (this.state)
       if (state <= 0)
         this.state = false
+        val str : String = currentState.toString;
         notifyObservers(this, currentState)
         true
       else
