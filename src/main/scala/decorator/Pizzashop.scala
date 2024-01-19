@@ -26,7 +26,9 @@ class Verdura extends Margherita:
     
 
 // === ADD YOUR CODE BELOW ===
-
+class Cheese extends Pizza:
+    
+    def price
 
 
 

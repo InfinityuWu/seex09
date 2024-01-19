@@ -11,12 +11,14 @@ case class Switch(name: String) extends Control with Loggable[Entity, EntityChan
     if (this.state)
       if (state <= 0)
         this.state = false
+        notifyObservers(this, currentState)
         true
       else
         false
     else
       if (state > 0)
         this.state = true
+        notifyObservers(this, currentState)
         true
       else
         false
